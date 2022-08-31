@@ -1,0 +1,11 @@
+name = "app-debug"
+type = "webpack"
+route = ''
+zone_id = ''
+usage_model = 'bundled'
+compatibility_flags = []
+workers_dev = true
+compatibility_date = "2022-08-30"
+
+[vars]
+CRYSTALLIZE_JWT_SECRET = "d2e18235f3a100de2f795e6c2ba4cb259d06b5fb"
