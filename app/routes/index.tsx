@@ -13,16 +13,8 @@ export const loader: LoaderFunction = async (params) => {
     });
   }
 
-  let jwtSecret: string | null =
+  const jwtSecret: string | null =
     (params.context?.CRYSTALLIZE_JWT_SECRET as string) || null;
-
-  /**
-   * For DEMO purposes, pull secret from a search param. This
-   * should NEVER be done in a production-like app
-   */
-  if (!jwtSecret) {
-    jwtSecret = url.searchParams.get("secret");
-  }
 
   if (!jwtSecret) {
     return json({
