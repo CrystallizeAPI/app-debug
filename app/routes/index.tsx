@@ -13,16 +13,8 @@ export const loader: LoaderFunction = async (params) => {
     });
   }
 
-  const jwtSecret: string | null =
-    (params.context?.CRYSTALLIZE_JWT_SECRET as string) || null;
-
-  if (!jwtSecret) {
-    return json({
-      jwtSecret,
-      message:
-        "No JWT secret provided. You can pass it as a query param for this debug app: ?secret=...",
-    });
-  }
+  const jwtSecret: string =
+    (params.context?.CRYSTALLIZE_JWT_SECRET as string) || "";
 
   const jwtVerified = await jwt.verify(signature, jwtSecret);
   const jwtDecoded = await jwt.decode(signature);
